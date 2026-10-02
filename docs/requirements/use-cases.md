@@ -1534,7 +1534,7 @@ Details:
 
 **Preconditions:**
 - PRE-1. The instructor is logged into the system.
-- PRE-2. The instructor is assigned to the course section (BR-section-scoped-access).
+- PRE-2. The course section is one the instructor may access (BR-section-scoped-access).
 
 **Postconditions:**
 - POST-1. The instructor is shown the students of the course section who have an outstanding submission for the selected week, and how many such students there are.
@@ -1557,8 +1557,8 @@ Details:
 12. Use case ends.
 
 **Extensions:**
-- **1a. The instructor is not assigned to the course section:**
-  - 1a1. The system does not display any student of that course section and informs the instructor that she may access only the course sections she is assigned to (BR-section-scoped-access).
+- **1a. The course section is not one the instructor may access:**
+  - 1a1. The system does not display any student of that course section and informs the instructor that she may not access it (BR-section-scoped-access).
   - 1a2. Use case ends.
 - **3a. The selected week is not one of the course section's active weeks:**
   - 3a1. The system informs the instructor that no submission is required for that week, so no student has an outstanding submission for it (BR-active-weeks, BR-outstanding-submission).
@@ -1605,6 +1605,9 @@ Details:
 
 **Associated Information:**
 
+Course section:
+- The use case is carried out for one course section, which the instructor names when she triggers it. She may name any course section she may access: an instructor, a course section she is assigned to; a course admin, who acts here as an instructor (BR-role-based-access), a course section of a course she owns (BR-section-scoped-access).
+
 Week:
 - The instructor selects one week. The system offers the course section's active weeks that have ended; by default, it shall be the previous week.
 
@@ -1612,7 +1615,7 @@ Listing:
 - Columns to include: student name, team, weekly activity report (outstanding or submitted), peer evaluation (outstanding, outstanding and no longer submittable, or submitted), eligible for a submission nudge (and, if not, the reason).
 - Sorting criteria: by default, sort by last name in ascending order.
 - The listing shows submission status only. It shows no activity, score, or comment.
-- The listing is shown only to an instructor assigned to the course section. A student is never shown the listing or another student's submission status (BR-team-scoped-access, CO-ferpa).
+- The listing is shown only to an instructor who may access the course section (BR-section-scoped-access). A student is never shown the listing or another student's submission status (BR-team-scoped-access, CO-ferpa).
 
 Eligibility:
 - A student is eligible for a submission nudge when she has at least one outstanding submission for the selected week that she can still submit, and she has not been sent a submission nudge today (BR-nudge-daily-limit).
