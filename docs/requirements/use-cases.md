@@ -1560,6 +1560,9 @@ Details:
 - **1a. The course section is not one the instructor may access:**
   - 1a1. The system does not display any student of that course section and informs the instructor that she may not access it (BR-section-scoped-access).
   - 1a2. Use case ends.
+- **2a. The course section has no active week that has ended** (no active weeks are configured, or the first one is still in progress):
+  - 2a1. The system informs the instructor that there is no week for which a submission is yet required.
+  - 2a2. Use case ends.
 - **3a. The selected week is not one of the course section's active weeks:**
   - 3a1. The system informs the instructor that no submission is required for that week, so no student has an outstanding submission for it (BR-active-weeks, BR-outstanding-submission).
   - 3a2. The instructor either returns to step 3 of the normal flow or terminates the use case.
@@ -1615,7 +1618,7 @@ Course section:
 - The use case is carried out for one course section, which the instructor names when she triggers it. She may name any course section she may access: an instructor, a course section she is assigned to; a course admin, who acts here as an instructor (BR-role-based-access), a course section of a course she owns (BR-section-scoped-access).
 
 Week:
-- The instructor selects one week. The system offers the course section's active weeks that have ended; by default, it shall be the previous week.
+- The instructor selects one week. The system offers the course section's active weeks that have ended (BR-outstanding-submission); by default, it shall be the most recent of them, which is the previous week whenever the previous week is an active week.
 
 Listing:
 - Columns to include: student name, team, weekly activity report (outstanding or submitted), peer evaluation (outstanding, outstanding and no longer submittable, or submitted), eligible for a submission nudge (and, if not, the reason).
