@@ -1585,9 +1585,13 @@ Details:
   - 6a3. A submission nudge sent in step 9 for that week names the weekly activity report only.
 - **6b. A listed student has already been sent a submission nudge today:**
   - 6b1. The system marks her as not eligible for a submission nudge and displays that she has already been nudged today (BR-nudge-daily-limit).
-- **6c. No listed student is eligible for a submission nudge:**
-  - 6c1. The system informs the instructor that no submission nudge can be sent and leaves the listing displayed.
-  - 6c2. Use case ends.
+- **6c. The course section is not active:**
+  - 6c1. The system marks every listed student as not eligible for a submission nudge and informs the instructor that no submission nudge is sent to the students of a course section that is not active (BR-nudge-active-section-only).
+  - 6c2. The system leaves the listing displayed.
+  - 6c3. Use case ends.
+- **6d. No listed student is eligible for a submission nudge:**
+  - 6d1. The system informs the instructor that no submission nudge can be sent and leaves the listing displayed.
+  - 6d2. Use case ends.
 - **7a. The instructor does not confirm:**
   - 7a1. The system sends no submission nudge and records none.
   - 7a2. Use case ends.
@@ -1610,7 +1614,7 @@ Details:
 
 **Priority:** Medium
 **Frequency of Use:** Approximately 2 users, 1 to 2 usages per course section per week.
-**Business Rules:** BR-section-scoped-access, BR-role-based-access, BR-team-scoped-access, BR-outstanding-submission, BR-nudge-daily-limit, BR-team-assignment-required, BR-active-weeks, BR-evaluation-submission-window, BR-student-lifecycle
+**Business Rules:** BR-section-scoped-access, BR-role-based-access, BR-team-scoped-access, BR-outstanding-submission, BR-nudge-daily-limit, BR-nudge-active-section-only, BR-team-assignment-required, BR-active-weeks, BR-evaluation-submission-window, BR-student-lifecycle
 
 **Associated Information:**
 
@@ -1627,7 +1631,7 @@ Listing:
 - The listing is shown only to an instructor who may access the course section (BR-section-scoped-access). A student is never shown the listing or another student's submission status (BR-team-scoped-access, CO-ferpa).
 
 Eligibility:
-- A student is eligible for a submission nudge when she has at least one outstanding submission for the selected week that she can still submit, and she has not been sent a submission nudge today (BR-nudge-daily-limit).
+- A student is eligible for a submission nudge when her course section is active (BR-nudge-active-section-only), she has at least one outstanding submission for the selected week that she can still submit, and she has not been sent a submission nudge today (BR-nudge-daily-limit).
 - An outstanding weekly activity report can still be submitted. An outstanding peer evaluation can still be submitted only while its submission window is open (BR-evaluation-submission-window).
 
 Submission nudge:
