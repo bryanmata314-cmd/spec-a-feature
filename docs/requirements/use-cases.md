@@ -1588,12 +1588,18 @@ Details:
 - **7a. The instructor does not confirm:**
   - 7a1. The system sends no submission nudge and records none.
   - 7a2. Use case ends.
+- **7b. The instructor confirms without selecting any student:**
+  - 7b1. The system sends no submission nudge and informs the instructor that she must select at least one student.
+  - 7b2. The instructor returns to step 7 of the normal flow.
 - **8a. A selected student no longer has an outstanding submission she can still submit** (she submitted, or the submission window closed, after step 6):
   - 8a1. The system does not send her a submission nudge and continues with the remaining selected students.
   - 8a2. The system names her in step 11 as not nudged because nothing she can submit is outstanding.
 - **8b. A selected student has been sent a submission nudge today after step 6** (by another instructor, or by this instructor in another session):
   - 8b1. The system does not send her a second submission nudge and continues with the remaining selected students (BR-nudge-daily-limit).
   - 8b2. The system names her in step 11 as already nudged today.
+- **8c. A selected student is not a student of the course section:**
+  - 8c1. The system does not send her a submission nudge, discloses nothing about her, and continues with the remaining selected students (BR-section-scoped-access).
+  - 8c2. The system reports in step 11 that one selection was not a student of the course section.
 - **9a. The mail server does not accept a student's submission nudge:**
   - 9a1. The system logs the failure with the student and the course section, and continues with the remaining selected students.
   - 9a2. The system does not record a submission nudge for her, so she remains eligible today (BR-nudge-daily-limit).
