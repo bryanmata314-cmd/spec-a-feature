@@ -1637,7 +1637,7 @@ Eligibility:
 Submission nudge:
 - One email per student, sent to the email address of her account and addressed to her alone, delivered per CI-email-notifications.
 - The email names the course section, the selected week, and each of her outstanding submissions for that week that she can still submit. It names no other student and no other student's submission status (CO-ferpa).
-- A submission nudge is separate from the scheduled weekly reminder (FR-NOT-weekly-reminder): sending one does not suppress the other.
+- A submission nudge is separate from the scheduled weekly reminder (FR-NOT-weekly-reminder): sending one does not suppress the other, and the configuration that disables the scheduled weekly reminder does not disable submission nudges.
 
 Failure handling:
 - Each submission nudge is sent and recorded independently. If the use case fails after some submission nudges have been sent, those remain sent and recorded, the remaining ones are not sent, and nothing is rolled back.
